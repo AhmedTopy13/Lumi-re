@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+</head>
+<body>
+    <style>
+/* Removed invalid variable declarations */
+
+        .blob {
+            position: relative;
+            width: 70%;
+            height: 55%;
+            background: orange;
+        }
+        .blob::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            width: 20%;
+            height: 20%;
+            background: orange;
+        }
+        .blob::after {
+            content: "";
+            position: absolute;
+            left: 70%;
+            width: 10%;
+            height: 10%;
+            background: orange;
+        }
+        .glob {
+            width: 50%;
+            height: 50%;
+        }
+    </style>
+    <div class="blob">
+        <div class="glob"></div>
+    </div>
+</body>
+</html>
