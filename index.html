@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,9 +50,11 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
+
     .download-btn:hover {
       background: var(--hover);
     }
+
     .download-btn:active {
       background: var(--pressed);
     }
@@ -103,7 +106,7 @@
       flex: 1 1 300px;
       max-width: 500px;
       border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
       transition: transform 0.3s;
     }
 
@@ -120,7 +123,7 @@
       display: flex;
       justify-content: center;
       gap: 15px;
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(6px);
       padding: 10px 20px;
       border-radius: 20px;
@@ -151,34 +154,41 @@
       header h1 {
         font-size: 2rem;
       }
+
       header p {
         font-size: 1rem;
       }
+
       .section {
         flex-direction: column !important;
         text-align: center;
       }
+
       .section img {
         max-width: 90%;
       }
+
       .social-links {
         gap: 10px;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Lumière</h1>
     <p>برنامج لإدارة عمليات تأجير الفساتين والسيشنات مع سهولة الوصول للبيانات والتحكم في الصلاحيات.</p>
-    <a href="https://github.com/AhmedTopy13/Lumi-re/releases/download/v1.0.2/1.2.zip" class="download-btn">تحميل البرنامج</a>
+    <a href="https://github.com/AhmedTopy13/Lumi-re/releases/download/v1.0.2/1.2.zip" class="download-btn">تحميل
+      البرنامج</a>
   </header>
 
   <main>
     <section class="section">
       <div class="text-container">
         <h2>الشاشة الرئيسية</h2>
-        <p>تحتوي على روابط لجميع الشاشات مثل إدخال الفساتين والميكاب والإحصائيات والإعدادات، مع قائمة جانبية للمهام القادمة.</p>
+        <p>تحتوي على روابط لجميع الشاشات مثل إدخال الفساتين والميكاب والإحصائيات والإعدادات، مع قائمة جانبية للمهام
+          القادمة.</p>
       </div>
       <img src="Assets/Main-window.png" alt="الشاشة الرئيسية">
     </section>
@@ -238,6 +248,17 @@
       </div>
       <img src="Assets/Settings.png" alt="الإعدادات">
     </section>
+    <section class="section">
+
+      <video 
+    class="section-video"
+    src="Assets/app-style.mp4" 
+    style="width: 90%; border-radius: 20px; margin: 5%;"
+    preload="auto"
+    muted
+    playsinline
+    loop>
+    </section>
   </main>
 
   <div class="social-links">
@@ -254,6 +275,22 @@
   </footer>
 
   <script>
+     const videos = document.querySelectorAll(".section-video");
+     document.addEventListener("DOMContentLoaded", function() {
+       
+       const videoObserver = new IntersectionObserver((entries) => {
+         entries.forEach(entry => {
+           const video = entry.target;
+           if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+      videos.forEach(video => videoObserver.observe(video));
+    });
+
     // انيميشن الاسكرول + التلاشي عند الابتعاد
     const sections = document.querySelectorAll('.section');
     const toggleOnScroll = () => {
@@ -268,10 +305,12 @@
           sec.classList.remove('show');
           sec.classList.add('hide');
         }
+
       });
     };
     window.addEventListener('scroll', toggleOnScroll);
     toggleOnScroll();
   </script>
 </body>
+
 </html>
